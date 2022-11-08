@@ -1,46 +1,35 @@
 import React from 'react';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
 import WorkOutItem from './WorkOutItem';
+import FitnessCards from '../components/FitnessCards';
+import { FitnessItems } from '../Context';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
   {
     id: 1,
-    url:
-      'https://www.kingofthegym.com/wp-content/uploads/2012/11/benefits-of-deadlifting.jpg',
+    url: 'https://www.kingofthegym.com/wp-content/uploads/2012/11/benefits-of-deadlifting.jpg',
     title: 'Dead lifts',
-    time: '00:30',
-    times: '10 x',
-  },
-  {
-    id: 2,
-    url:
-      'https://www.rd.com/wp-content/uploads/2019/01/shutterstock_439173466-760x506.jpg',
-    title: 'Push ups',
-    time: '00:30',
-    times: '10 x',
-  },
-  {
-    id: 9,
-    url:
-      'https://cdn.pixabay.com/photo/2017/01/11/18/35/blur-1972569_960_720.jpg',
-    title: 'Pull up',
     time: '00:30',
     times: '10 x',
   },
 ];
 
 const Workouts = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.workouts}>
       <View style={styles.workoutHeader}>
-        <Text style={styles.recentWorkout}>Recent Workouts</Text>
+        <Text style={styles.recentWorkout}>Workouts</Text>
         <View style={styles.workoutsRight}>
-          <Text style={{
-            color: "#FC427B",
-            fontWeight: "bold",
-            fontSize: 15,
-            marginRight: 10,
-          }}>
+          <Text
+            onPress={() => navigation.navigate('WorkOutList')}
+            style={{
+              color: '#FC427B',
+              fontWeight: 'bold',
+              fontSize: 15,
+              marginRight: 10,
+            }}>
             See all
           </Text>
         </View>
@@ -50,19 +39,11 @@ const Workouts = () => {
           data={data}
           keyExtractor={(item, index) => item.id}
           showsVerticalScrollIndicator={false}
-          renderItem={itemData => {
-            return (
-              <WorkOutItem
-                title={itemData.item.title}
-                time={itemData.item.time}
-                times={itemData.item.times}
-                uri={itemData.item.url}
-              />
-            )
+          renderItem={(itemData) => {
+            return <FitnessCards />;
           }}
         />
       </React.Fragment>
-
     </View>
   );
 };
@@ -79,13 +60,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   recentWorkout: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 20,
   },
   workoutsRight: {
     flexDirection: 'row',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default Workouts;

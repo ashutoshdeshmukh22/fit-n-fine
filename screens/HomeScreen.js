@@ -5,14 +5,16 @@ import {
   SafeAreaView,
   Image,
   ScrollView,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import React, { useContext } from 'react';
 import FitnessCards from '../components/FitnessCards';
 import { FitnessItems } from '../Context';
 
-import Headers from './src/components/Headers';
-import Challenges from './src/components/Challenges';
-import Workouts from './src/components/Workouts';
+import Headers from '../components/Headers';
+import Workouts from '../components/Workouts';
+import Challenges from '../components/Challenges';
 
 const data = [
   {
@@ -31,6 +33,22 @@ const data = [
     level: 'EASY',
     url: 'https://images-prod.healthline.com/hlcmsresource/images/AN_images/best-ways-to-get-abs-1296x728-feature.jpg',
   },
+  {
+    id: 3,
+    name: 'Begineer Arm Challenge',
+    days: 30,
+    workouts: 35,
+    level: 'EASY',
+    url: 'https://www.themanual.com/wp-content/uploads/sites/9/2021/02/best-arm-workouts-for-men-2021.jpg?p=1',
+  },
+  {
+    id: 4,
+    name: 'Begineer Chest Challenge',
+    days: 30,
+    workouts: 35,
+    level: 'EASY',
+    url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK4syGQNEZT9Q0BXKxHq7YhQ5r49rdYRL1-Q&usqp=CAU',
+  },
 ];
 
 const HomeScreen = () => {
@@ -42,96 +60,19 @@ const HomeScreen = () => {
     workout,
   } = useContext(FitnessItems);
   return (
-    <ScrollView style={{ marginTop: 40 }}>
-      <View
-        style={{
-          backgroundColor: '#CD853F',
-          padding: 10,
-          height: '100%',
-          width: '100%',
-        }}>
-        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>
-          HOME WORKOUT
-        </Text>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginTop: 20,
-          }}>
-          <View>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: 'bold',
-                color: 'white',
-                fontSize: 18,
-              }}>
-              {workout}
-            </Text>
-            <Text style={{ color: '#D0D0D0', fontSize: 17, marginTop: 6 }}>
-              WORKOUTS
-            </Text>
-          </View>
-
-          <View>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: 'bold',
-                color: 'white',
-                fontSize: 18,
-              }}>
-              {calories}
-            </Text>
-            <Text style={{ color: '#D0D0D0', fontSize: 17, marginTop: 6 }}>
-              KCAL
-            </Text>
-          </View>
-
-          <View>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: 'bold',
-                color: 'white',
-                fontSize: 18,
-              }}>
-              {minutes}
-            </Text>
-            <Text style={{ color: '#D0D0D0', fontSize: 17, marginTop: 6 }}>
-              MINS
-            </Text>
-          </View>
-        </View>
-
-        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Image
-            style={{
-              width: '90%',
-              height: 120,
-              marginTop: 20,
-              borderRadius: 7,
-            }}
-            source={{
-              uri: 'https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_842,ar_1.2,q_auto:eco,dpr_2,f_auto,fl_progressive/image/test/sku-card-widget/gold2.png',
-            }}
-          />
-        </View>
-        <FitnessCards />
-      </View>
-      // new
-      <View style={styles.screen}>
-        <Headers />
-        <Challenges data={data} />
-        <Workouts />
-      </View>
-    </ScrollView>
+    <View style={styles.screen}>
+      <Headers />
+      <Challenges data={data} />
+      <Workouts />
+    </View>
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    flex: 1,
+  },
+});

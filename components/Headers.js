@@ -3,18 +3,17 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import Badge from './Badge';
 
-const Headers = _ => (
+const Headers = (_) => (
   <React.Fragment>
-    <View style={styles.icons}>
-    </View>
+    <View style={styles.icons}></View>
     <View>
-      <Text style={styles.headerText}>Start Your</Text>
+      <Text style={styles.headerText}>Welcome To</Text>
       <Text style={styles.headerText}>
-        <Text style={styles.pinkText}>Fitness</Text> Journey
+        <Text style={styles.pinkText}>Fit-N-Fine</Text> Journey
       </Text>
       <View style={styles.badges}>
-        <Badge name="Easy Level" />
-        <Badge name="Free" />
+        <Badge name='Easy Level' />
+        <Badge name='Free' />
       </View>
     </View>
   </React.Fragment>
@@ -27,7 +26,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
-  }, rightBtns: {
+  },
+  rightBtns: {
     flexDirection: 'row',
   },
   headerText: {
@@ -36,13 +36,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   pinkText: {
-    color: "#FC427B",
+    color: '#FC427B',
   },
   badges: {
     flexDirection: 'row',
     marginVertical: 20,
     paddingHorizontal: 15,
-  }
+  },
 });
 
 export default Headers;
