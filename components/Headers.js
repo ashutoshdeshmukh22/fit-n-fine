@@ -3,17 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import Badge from './Badge';
 
-const Headers = (_) => (
+const Headers = () => (
   <React.Fragment>
-    <View style={styles.icons}></View>
-    <View>
-      <Text style={styles.headerText}>Welcome To</Text>
-      <Text style={styles.headerText}>
-        <Text style={styles.pinkText}>Fit-N-Fine</Text> Journey
-      </Text>
-      <View style={styles.badges}>
-        <Badge name='Easy Level' />
-        <Badge name='Free' />
+    <View style={styles.icons}>
+      <View>
+        <Text style={styles.headerText}>Welcome To</Text>
+        <Text style={styles.headerText}>
+          <Text style={styles.pinkText}>Fit-N-Fine</Text> Journey
+        </Text>
       </View>
     </View>
   </React.Fragment>
@@ -21,11 +18,13 @@ const Headers = (_) => (
 
 const styles = StyleSheet.create({
   icons: {
-    paddingVertical: 10,
+    paddingVertical: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
+    backgroundColor: 'pink',
+    paddingBottom: 100,
   },
   rightBtns: {
     flexDirection: 'row',

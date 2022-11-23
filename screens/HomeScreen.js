@@ -7,6 +7,7 @@ import {
   ScrollView,
   Platform,
   StatusBar,
+  Pressable,
 } from 'react-native';
 import React, { useContext } from 'react';
 import FitnessCards from '../components/FitnessCards';
@@ -15,6 +16,8 @@ import { FitnessItems } from '../Context';
 import Headers from '../components/Headers';
 import Workouts from '../components/Workouts';
 import Challenges from '../components/Challenges';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
   {
@@ -59,11 +62,148 @@ const HomeScreen = () => {
 
     workout,
   } = useContext(FitnessItems);
+  const navigation = useNavigation();
   return (
     <View style={styles.screen}>
       <Headers />
-      <Challenges data={data} />
-      <Workouts />
+      <ScrollView>
+        {/* Workout Card */}
+        <View>
+          <Pressable
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: 10,
+              marginTop: 20,
+            }}>
+            <Image
+              style={{
+                width: '95%',
+                height: 140,
+                borderRadius: 7,
+                opacity: 0.5,
+                backgroundColor: '#000000',
+              }}
+              source={{
+                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-VMUM69IwjvvH614g_yizbw37YoN7SBRdGw&usqp=CAU',
+              }}
+            />
+            <Text
+              onPress={() => navigation.navigate('WorkOutList')}
+              style={{
+                position: 'absolute',
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+                left: 20,
+                top: 20,
+              }}>
+              Home Workout
+            </Text>
+            <MaterialCommunityIcons
+              style={{
+                position: 'absolute',
+                color: 'white',
+                bottom: 15,
+                left: 20,
+              }}
+              name='lightning-bolt'
+              size={24}
+              color='black'
+            />
+          </Pressable>
+        </View>
+        {/* Diet Card */}
+        <View>
+          <Pressable
+            onPress={() => navigation.navigate('DietPlan', {})}
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: 10,
+            }}>
+            <Image
+              style={{
+                width: '95%',
+                height: 140,
+                borderRadius: 7,
+                opacity: 0.5,
+                backgroundColor: '#000000',
+              }}
+              source={{
+                uri: 'https://static.toiimg.com/photo/msid-70769358/70769358.jpg',
+              }}
+            />
+            <Text
+              style={{
+                position: 'absolute',
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+                left: 20,
+                top: 20,
+              }}>
+              Diet Plan
+            </Text>
+            <MaterialCommunityIcons
+              style={{
+                position: 'absolute',
+                color: 'white',
+                bottom: 15,
+                left: 20,
+              }}
+              name='lightning-bolt'
+              size={24}
+              color='black'
+            />
+          </Pressable>
+        </View>
+        {/* Step Counter */}
+        <View>
+          <Pressable
+            onPress={() => navigation.navigate('StepCounter', {})}
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: 10,
+            }}>
+            <Image
+              style={{
+                width: '95%',
+                height: 140,
+                borderRadius: 7,
+                opacity: 0.5,
+                backgroundColor: '#000000',
+              }}
+              source={{
+                uri: 'https://www.reviewgeek.com/p/uploads/2022/01/b145fc95.png?width=400',
+              }}
+            />
+            <Text
+              style={{
+                position: 'absolute',
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+                left: 20,
+                top: 20,
+              }}>
+              Step Counter
+            </Text>
+            <MaterialCommunityIcons
+              style={{
+                position: 'absolute',
+                color: 'white',
+                bottom: 15,
+                left: 20,
+              }}
+              name='lightning-bolt'
+              size={24}
+              color='black'
+            />
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
   );
 };

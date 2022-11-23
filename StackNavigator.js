@@ -7,6 +7,8 @@ import WorkoutScreen from './screens/WorkoutScreen';
 import FitScreen from './screens/FitScreen';
 import RestScreen from './screens/RestScreen';
 import WorkOutList from './screens/workoutlist';
+import DietPlan from './screens/dietPlan';
+import StepCounter from './screens/stepCounter';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -37,6 +39,16 @@ const StackNavigator = () => {
         <Stack.Screen
           name='Rest'
           component={RestScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='DietPlan'
+          component={DietPlan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='StepCounter'
+          component={StepCounter}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
