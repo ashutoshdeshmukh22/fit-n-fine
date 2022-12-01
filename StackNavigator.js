@@ -24,11 +24,6 @@ const StackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name='StepCounter'
-          component={StepCounter}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name='WelcomeScreen2'
           component={WelcomeScreen2}
           options={{ headerShown: false }}
@@ -86,6 +81,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name='DietPlan'
           component={DietPlan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='StepCounter'
+          component={StepCounter}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
