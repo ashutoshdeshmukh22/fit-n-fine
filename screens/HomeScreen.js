@@ -70,6 +70,7 @@ const HomeScreen = () => {
         {/* Workout Card */}
         <View>
           <Pressable
+            onPress={() => navigation.navigate('WorkOutList')}
             style={{
               alignItems: 'center',
               justifyContent: 'center',
