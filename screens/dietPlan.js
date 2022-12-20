@@ -72,7 +72,14 @@ const DietPlan = () => {
               />
             </View>
             <View style={styles.text}>
-              <Text style={styles.weightLoss}>Weight Loss</Text>
+              <Text
+                style={styles.weightLoss}
+                onPress={() => {
+                  navigation.navigate('WeightLoss', {});
+                  console.log('WeightLoss Clicked');
+                }}>
+                Weight Loss
+              </Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -94,7 +101,14 @@ const DietPlan = () => {
               />
             </View>
             <View style={styles.text1}>
-              <Text style={styles.weightGain}>Weight Gain</Text>
+              <Text
+                style={styles.weightGain}
+                onPress={() => {
+                  navigation.navigate('WeightGain', {});
+                  console.log('WeightGain Clicked');
+                }}>
+                Weight Gain
+              </Text>
             </View>
           </View>
         </TouchableOpacity>
