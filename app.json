@@ -10,7 +10,7 @@
     "icon": "./assets/logofitnfine.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Splash Screen.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

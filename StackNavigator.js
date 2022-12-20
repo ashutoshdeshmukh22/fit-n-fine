@@ -2,13 +2,14 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './screens/HomeScreen';
 import Home from './screens/Home';
 import WorkoutScreen from './screens/WorkoutScreen';
 import FitScreen from './screens/FitScreen';
 import RestScreen from './screens/RestScreen';
 import WorkOutList from './screens/workoutlist';
 import DietPlan from './screens/dietPlan';
+import WeightGain from './screens/WeightGain';
+import WeightLoss from './screens/WeightLoss';
 import StepCounter from './screens/stepCounter';
 import WelcomeScreen2 from './screens/WelcomeScreen2';
 import Onboarding1 from './screens/Onboarding1';
@@ -81,6 +82,16 @@ const StackNavigator = () => {
         <Stack.Screen
           name='DietPlan'
           component={DietPlan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='WeightLoss'
+          component={WeightLoss}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='WeightGain'
+          component={WeightGain}
           options={{ headerShown: false }}
         />
         <Stack.Screen

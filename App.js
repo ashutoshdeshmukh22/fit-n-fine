@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import { FitnessContext } from './Context';
 import StackNavigator from './StackNavigator';
+import { useFonts } from 'expo-font';
 
 import 'expo-dev-client';
 
 export default function App() {
+  // useFonts({ Poppins: require('./assets/fonts/Poppins.ttf') });
   return (
     <FitnessContext>
       <StackNavigator />
