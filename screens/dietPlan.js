@@ -18,16 +18,6 @@ const DietPlan = () => {
   return (
     <SafeAreaView style={styles.dietPlanScreen}>
       <View style={styles.header}>
-        <Image
-          style={styles.backNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/backnavs.png')}
-        />
-        <Image
-          style={styles.detailNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/detailnavs.png')}
-        />
         <Text style={styles.dietPlan}>Diet Plan</Text>
       </View>
       <View style={styles.action}>

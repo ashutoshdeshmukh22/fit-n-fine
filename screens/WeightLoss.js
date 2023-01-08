@@ -15,16 +15,6 @@ const WeightLoss = () => {
   return (
     <View style={styles.weightLoss1}>
       <View style={styles.header}>
-        <Image
-          style={styles.backNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/backnavs.png')}
-        />
-        <Image
-          style={styles.detailNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/detailnavs.png')}
-        />
         <Text style={styles.weightLoss}>Weight Loss</Text>
       </View>
       <View style={styles.action}>
@@ -53,160 +43,94 @@ const WeightLoss = () => {
           </View>
         </View>
       </View>
-      <View style={styles.mealsSection}>
-        <View style={styles.breakfastSection}>
-          <View style={styles.breakfast1}>
-            <Text style={styles.breakfast}>Breakfast</Text>
-          </View>
-          <View style={styles.breakfastCard}>
-            <Image
-              style={styles.bgIcon}
-              resizeMode='cover'
-              source={require('../assets/bg.png')}
-            />
-            <View style={styles.text}>
-              <Text style={styles.honeyPancake}>Honey Pancake</Text>
-              <Text style={styles.am}>07:00am</Text>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainer}>
+        <View style={styles.mealsSection}>
+          <View style={styles.breakfastSection}>
+            <View style={styles.breakfast1}>
+              <Text style={styles.breakfast}>Breakfast</Text>
             </View>
-            <Image
-              style={styles.iconArrow}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-          <View style={styles.breakfastCard1}>
-            <Image
-              style={styles.bgIcon1}
-              resizeMode='cover'
-              source={require('../assets/bg1.png')}
-            />
-            <View style={styles.text1}>
-              <Text style={styles.coffee}>Coffee</Text>
-              <Text style={styles.am1}>07:30am</Text>
-            </View>
-            <Image
-              style={styles.iconArrow1}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-        </View>
-        <View style={styles.lunchSection}>
-          <View style={styles.lunch1}>
-            <Text style={styles.lunch}>Lunch</Text>
-          </View>
-          <View style={styles.text2}>
-            <Text style={styles.chickenSteak}>Chicken Steak</Text>
-            <Text style={styles.pm}>01:00pm</Text>
-          </View>
-          <View style={styles.lunchCard}>
-            <Image
-              style={styles.bgIcon2}
-              resizeMode='cover'
-              source={require('../assets/bg2.png')}
-            />
-            <Image
-              style={styles.iconArrow2}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-          <View style={styles.lunchCard1}>
-            <Image
-              style={styles.bgIcon3}
-              resizeMode='cover'
-              source={require('../assets/bg3.png')}
-            />
-            <View style={styles.text3}>
-              <Text style={styles.milk}>Milk</Text>
-              <Text style={styles.pm1}>01:20pm</Text>
-            </View>
-            <Image
-              style={styles.iconArrow3}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-        </View>
-        <View style={styles.snacksSection}>
-          <View style={styles.snacks1}>
-            <Text style={styles.snacks}>Snacks</Text>
-          </View>
-          <View style={styles.snackCard}>
-            <Image
-              style={styles.bgIcon4}
-              resizeMode='cover'
-              source={require('../assets/bg4.png')}
-            />
-            <View style={styles.text4}>
-              <Text style={styles.orange}>Orange</Text>
-              <Text style={styles.pm2}>04:30pm</Text>
-            </View>
-            <View style={styles.iconArrow4}>
+            <View style={styles.breakfastCard}>
               <Image
-                style={styles.iconlyLightArrowRightCir}
+                style={styles.bgIcon}
                 resizeMode='cover'
-                source={require('../assets/iconarrow3.png')}
+                source={require('../assets/bg.png')}
+              />
+              <View style={styles.text}>
+                <Text style={styles.honeyPancake}>Honey Pancake</Text>
+                <Text style={styles.am}>07:00am</Text>
+              </View>
+            </View>
+            <View style={styles.breakfastCard1}>
+              <Image
+                style={styles.bgIcon1}
+                resizeMode='cover'
+                source={require('../assets/bg1.png')}
+              />
+              <View style={styles.text1}>
+                <Text style={styles.coffee}>Coffee</Text>
+                <Text style={styles.am1}>07:30am</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.lunchSection}>
+            <View style={styles.lunch1}>
+              <Text style={styles.lunch}>Lunch</Text>
+            </View>
+            <View style={styles.text2}>
+              <Text style={styles.chickenSteak}>Chicken Steak</Text>
+              <Text style={styles.pm}>01:00pm</Text>
+            </View>
+            <View style={styles.lunchCard}>
+              <Image
+                style={styles.bgIcon2}
+                resizeMode='cover'
+                source={require('../assets/bg2.png')}
               />
             </View>
-          </View>
-          <View style={styles.snackCard1}>
-            <Image
-              style={styles.bgIcon5}
-              resizeMode='cover'
-              source={require('../assets/bg5.png')}
-            />
-            <View style={styles.text5}>
-              <Text style={styles.applePie}>Apple Pie</Text>
-              <Text style={styles.pm3}>04:40pm</Text>
-            </View>
-            <Image
-              style={styles.iconArrow5}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-        </View>
-        <View style={styles.dinnerSection}>
-          <View style={styles.dinner1}>
-            <Text style={styles.dinner}>Dinner</Text>
-          </View>
-          <View style={styles.dinnerCard}>
-            <Image
-              style={styles.bgIcon6}
-              resizeMode='cover'
-              source={require('../assets/bg6.png')}
-            />
-            <View style={styles.text6}>
-              <Text style={styles.salad}>Salad</Text>
-              <Text style={styles.pm4}>07:10pm</Text>
-            </View>
-            <Image
-              style={styles.iconArrow6}
-              resizeMode='cover'
-              source={require('../assets/iconarrow3.png')}
-            />
-          </View>
-          <View style={styles.dinnerCard1}>
-            <Image
-              style={styles.bgIcon7}
-              resizeMode='cover'
-              source={require('../assets/bg7.png')}
-            />
-            <View style={styles.text7}>
-              <Text style={styles.oatmeal}>Oatmeal</Text>
-              <Text style={styles.pm5}>08:10pm</Text>
-            </View>
-            <View style={styles.iconArrow7}>
+            <View style={styles.lunchCard1}>
               <Image
-                style={styles.iconlyLightArrowRightCir1}
+                style={styles.bgIcon3}
                 resizeMode='cover'
-                source={require('../assets/iconarrow3.png')}
+                source={require('../assets/bg3.png')}
               />
+              <View style={styles.text3}>
+                <Text style={styles.milk}>Milk</Text>
+                <Text style={styles.pm1}>01:20pm</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.snacksSection}>
+            <View style={styles.snacks1}>
+              <Text style={styles.snacks}>Dinner</Text>
+            </View>
+            <View style={styles.snackCard}>
+              <Image
+                style={styles.bgIcon4}
+                resizeMode='cover'
+                source={require('../assets/bg4.png')}
+              />
+              <View style={styles.text4}>
+                <Text style={styles.orange}>Orange</Text>
+                <Text style={styles.pm2}>04:30pm</Text>
+              </View>
+              <View style={styles.iconArrow4}></View>
+            </View>
+            <View style={styles.snackCard1}>
+              <Image
+                style={styles.bgIcon5}
+                resizeMode='cover'
+                source={require('../assets/bg5.png')}
+              />
+              <View style={styles.text5}>
+                <Text style={styles.applePie}>Apple Pie</Text>
+                <Text style={styles.pm3}>04:40pm</Text>
+              </View>
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -285,7 +209,7 @@ const styles = StyleSheet.create({
   workoutScheduleText: {
     position: 'absolute',
     height: '31.34%',
-    width: '67.12%',
+    width: '80.12%',
     top: '31.58%',
     right: '26.53%',
     bottom: '37.08%',
@@ -542,7 +466,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   lunchCard: {
@@ -595,7 +519,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   lunchCard1: {
@@ -682,7 +606,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   snackCard: {
@@ -735,7 +659,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   snackCard1: {
@@ -815,7 +739,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   dinnerCard: {
@@ -875,7 +799,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 18,
     left: 336,
-    width: 28,
+    width: 22,
     height: 24,
   },
   dinnerCard1: {
@@ -907,5 +831,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 932,
     overflow: 'hidden',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
   },
 });
