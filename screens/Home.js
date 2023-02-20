@@ -79,6 +79,28 @@ const Home = () => {
           </View>
         </TouchableOpacity>
       </View>
+      <View style={styles.ChatBot}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('ChatBot');
+            console.log('ChatBot Clicked');
+          }}
+          style={styles.statusView}>
+          <View style={styles.heartRateTextView}>
+            <Text style={styles.heartRateText}>Chat</Text>
+          </View>
+          <View style={styles.onboardDescriptionView}>
+            <Text style={styles.youAreAllSetNowLetsRea}>
+              You Can Ask Anything
+            </Text>
+          </View>
+          <Image
+            style={styles.groupIcon}
+            resizeMode='cover'
+            source={require('../assets/chatbot.png')}
+          />
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate('StepCounter', {});
@@ -478,6 +500,15 @@ const styles = StyleSheet.create({
     left: 30,
     borderRadius: 20,
     backgroundColor: '#e8eeff',
+    width: 350,
+    height: 150,
+  },
+  ChatBot: {
+    position: 'absolute',
+    top: 730,
+    left: 30,
+    borderRadius: 20,
+    backgroundColor: '#f5baba',
     width: 350,
     height: 150,
   },

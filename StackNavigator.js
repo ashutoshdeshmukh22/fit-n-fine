@@ -8,6 +8,7 @@ import FitScreen from './screens/FitScreen';
 import RestScreen from './screens/RestScreen';
 import WorkOutList from './screens/workoutlist';
 import DietPlan from './screens/dietPlan';
+import ChatBot from './screens/ChatBot';
 import WeightGain from './screens/WeightGain';
 import WeightLoss from './screens/WeightLoss';
 import StepCounter from './screens/stepCounter';
@@ -97,6 +98,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name='StepCounter'
           component={StepCounter}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ChatBot'
+          component={ChatBot}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
