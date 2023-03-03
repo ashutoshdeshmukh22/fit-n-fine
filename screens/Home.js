@@ -79,6 +79,40 @@ const Home = () => {
           </View>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('FitnessBlog', {});
+          console.log('Fitness Blog Clicked');
+        }}
+        style={styles.blogView}>
+        <View style={styles.statusView2}>
+          <View style={styles.caloriesBgView}>
+            <View style={styles.rectangleView3} />
+          </View>
+          <View style={styles.caloriesTextView}>
+            <Text style={styles.caloriesText}>Fitness Blog</Text>
+          </View>
+          <View style={styles.caloriesPieView}>
+            <Image
+              style={styles.caloriesPieEllipseIcon}
+              resizeMode='cover'
+              source={require('../assets/blog.png')}
+            />
+            <View style={styles.caloriesPieTextView}>
+              <Image
+                style={styles.ellipseIcon}
+                resizeMode='cover'
+                source={require('../assets/blog.png')}
+              />
+            </View>
+          </View>
+        </View>
+        <Image
+          style={styles.vectorIcon}
+          resizeMode='cover'
+          source={require('../assets/blog.png')}
+        />
+      </TouchableOpacity>
       <View style={styles.ChatBot}>
         <TouchableOpacity
           onPress={() => {
@@ -89,13 +123,8 @@ const Home = () => {
           <View style={styles.heartRateTextView}>
             <Text style={styles.heartRateText}>Chat</Text>
           </View>
-          <View style={styles.onboardDescriptionView}>
-            <Text style={styles.youAreAllSetNowLetsRea}>
-              You Can Ask Anything
-            </Text>
-          </View>
           <Image
-            style={styles.groupIcon}
+            style={styles.chatBotIcon}
             resizeMode='cover'
             source={require('../assets/chatbot.png')}
           />
@@ -332,6 +361,18 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     maxHeight: '100%',
   },
+  chatBotIcon: {
+    position: 'absolute',
+    height: '71.96%',
+    width: '90.29%',
+    top: '22%',
+    right: '10.93%',
+    bottom: '16.04%',
+    left: '4.78%',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    maxHeight: '100%',
+  },
   rectangleView: {
     position: 'absolute',
     height: '100%',
@@ -505,12 +546,12 @@ const styles = StyleSheet.create({
   },
   ChatBot: {
     position: 'absolute',
-    top: 730,
+    top: 720,
     left: 30,
     borderRadius: 20,
     backgroundColor: '#f5baba',
-    width: 350,
-    height: 150,
+    width: 165,
+    height: 165,
   },
   rectangleView2: {
     position: 'absolute',
@@ -616,7 +657,7 @@ const styles = StyleSheet.create({
   },
   groupView: {
     position: 'absolute',
-    top: 548,
+    top: 540,
     left: 31,
     width: 172,
     height: 172,
@@ -755,7 +796,14 @@ const styles = StyleSheet.create({
   },
   groupView1: {
     position: 'absolute',
-    top: 548,
+    top: 540,
+    left: 215,
+    width: 172.49,
+    height: 172.49,
+  },
+  blogView: {
+    position: 'absolute',
+    top: 720,
     left: 215,
     width: 172.49,
     height: 172.49,
@@ -1035,7 +1083,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     width: '100%',
-    height: 800,
+    height: 700,
     overflow: 'hidden',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },

@@ -18,6 +18,7 @@ import Onboarding2 from './screens/Onboarding2';
 import Onboarding3 from './screens/Onboarding3';
 import RegisterPage from './screens/RegisterPage';
 import SuccessRegistration from './screens/SuccessRegistration';
+import FitnessBlog from './screens/FitnessBlog';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -103,6 +104,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name='ChatBot'
           component={ChatBot}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='FitnessBlog'
+          component={FitnessBlog}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
