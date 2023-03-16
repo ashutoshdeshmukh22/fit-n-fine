@@ -19,34 +19,41 @@ import axios, { isCancel, AxiosError } from 'axios';
 const ChatBot = () => {
   const navigation = useNavigation();
   const [data, setData] = useState([]);
-  const apikey = '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';
-  const apiUrl =
-    'https://api.openai.com/v1/engines/text-davinci-002/completions';
   const [textInput, setTextInput] = useState('');
 
   const handleSend = async () => {
     const prompt = textInput;
-    const response = await axios.post(
-      apiUrl,
-      {
-        prompt: prompt,
-        max_token: 1024,
-        temperature: 0.5,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apikey}`,
-        },
-      }
-    );
-    const text = response.data.choices[0].text;
-    setData([
-      ...data,
-      { type: 'user', text: textInput },
-      { type: 'bot', text: text },
-    ]);
-    setTextInput('');
+
+    axios
+      .get(`https://fit-n-fine-server.cyclic.app/message?prompt=${prompt}`)
+      .then(function (response) {
+        // handle success
+        const reply = response.data.content;
+        console.log(response.data.content);
+
+        const text = reply;
+        setData([
+          ...data,
+          { type: 'user', text: textInput },
+          { type: 'bot', text: text },
+        ]);
+        setTextInput('');
+      })
+      .catch(function (error) {
+        // handle error
+        const reply = 'There is some problem, Try again';
+
+        const text = reply;
+        setData([
+          ...data,
+          { type: 'user', text: textInput },
+          { type: 'bot', text: text },
+        ]);
+        setTextInput('');
+      })
+      .finally(function () {
+        // always executed
+      });
   };
 
   return (
@@ -64,7 +71,7 @@ const ChatBot = () => {
                   fontWeight: 'bold',
                   color: item.type === 'user' ? 'green' : 'red',
                 }}>
-                {item.type === 'user' ? 'Ninza: ' : 'Bot: '}
+                {item.type === 'user' ? 'User: ' : 'Bot: '}
               </Text>
               <Text style={styles.bot}>{item.text}</Text>
             </View>
@@ -90,7 +97,7 @@ export default ChatBot;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fffcc9',
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
   dietPlan: {
@@ -113,7 +120,7 @@ const styles = StyleSheet.create({
   },
   dietPlanScreen: {
     position: 'relative',
-    borderRadius: 40,
+    borderRadius: 0,
     backgroundColor: '#fff',
     flex: 1,
     width: '100%',
@@ -127,12 +134,14 @@ const styles = StyleSheet.create({
     marginTop: 70,
   },
   body: {
-    backgroundColor: '#fffcc9',
+    backgroundColor: '#fff',
     width: '102%',
     margin: 10,
   },
   bot: {
     fontSize: 16,
+    paddingRight: 50,
+    textAlign: 'justify',
   },
   input: {
     borderWidth: 1,
@@ -143,7 +152,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   button: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'rgba(149, 173, 254, 0.3)',
     width: '90%',
     height: 60,
     borderRadius: 10,
@@ -154,6 +163,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'blue',
+    color: 'black',
   },
 });

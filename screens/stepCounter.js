@@ -23,10 +23,11 @@ const StepCounter = () => {
   var DistanceCovered = Dist.toFixed(4);
   var cal = DistanceCovered * 60;
   var caloriesBurnt = cal.toFixed(4);
+  var steps = 0;
 
   React.useEffect(() => {
     subscribe();
-    console.log(StepCount);
+    // console.log(StepCount);
   }, []);
 
   const subscribe = () => {
@@ -44,108 +45,132 @@ const StepCounter = () => {
       }
     );
   };
-  // console.log(StepCount);
+  console.log('Steps : ' + StepCount);
+  console.log('Pedometer : ' + PedomaterAvailability);
+  console.log('Distance : ' + DistanceCovered);
+  console.log('Calories : ' + caloriesBurnt);
 
   return (
-    <SafeAreaView style={styles.stepCounterSafeAreaView}>
-      <View style={styles.headerView}>
-        <Image
-          style={styles.backNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/backnavs.png')}
-        />
-        <Image
-          style={styles.detailNavsIcon}
-          resizeMode='cover'
-          source={require('../assets/detailnavs.png')}
-        />
-        <Text style={styles.stepCounterText}>Step Counter</Text>
-      </View>
-      <View style={styles.statusView}>
-        <View style={styles.caloriesBgView}>
-          <View style={styles.rectangleView} />
-        </View>
-        <View style={styles.caloriesTextView}>
-          <Text style={styles.caloriesText}>Calories</Text>
-          <Text style={styles.kCalText}>{caloriesBurnt}</Text>
-        </View>
-        <Image
-          style={styles.caloriesPieIcon}
-          resizeMode='cover'
-          source={require('../assets/caloriespie.png')}
-        />
-      </View>
-      <View style={styles.targetView}>
-        <View style={styles.sleepStatusBgView}>
-          <View style={styles.rectangleView1} />
-        </View>
-        <View style={styles.sleepTextView}>
-          <Text style={styles.sleepText}>Target</Text>
-          <Text style={styles.h20mText}>4500</Text>
-        </View>
-        <Image
-          style={styles.sleepGraphIcon}
-          resizeMode='cover'
-          source={require('../assets/sleepgraph1.png')}
-        />
-      </View>
-      <Image
-        style={styles.progressSectionIcon}
-        resizeMode='cover'
-        source={require('../assets/progresssection.png')}
-      />
-      <View style={styles.countercardView}>
-        <View style={styles.bgView}></View>
-        <Image
-          style={styles.frameIcon}
-          resizeMode='cover'
-          source={require('../assets/frame-1.png')}
-        />
-        <View style={styles.workoutTextView}>
-          <Text style={styles.totalStepCount}>Total Step Count</Text>
-          <Text style={styles.text}>{StepCount}</Text>
-        </View>
-        <Pressable
-          onPress={() => {
-            console.log('Step Counter Start Button Clicked');
-            subscribe();
-          }}
-          style={styles.buttonViewmorePressable}>
-          <View style={styles.buttonBgView}>
-            <View style={styles.rectangleView2} />
-          </View>
-          <View style={styles.buttonTextView}>
-            <Text style={styles.startText}>Start</Text>
-          </View>
-        </Pressable>
-      </View>
-      <View style={styles.groupView}>
-        <View style={styles.scheduleBgView}></View>
-        <View style={styles.workoutScheduleTextView}>
-          <Text style={styles.dailySleepSchedule}>
-            <Text
-              style={
-                styles.isPedometerAvailable
-              }>{`Is Pedometer available on this `}</Text>
-            <Text style={styles.deviceText}>device</Text>
-          </Text>
-        </View>
-        <View style={styles.buttonCheckView}>
-          <View style={styles.buttonBgView1}>
-            <View style={styles.rectangleView3} />
-          </View>
-          <View style={styles.buttonTextView1}>
-            <Text style={styles.yesNo}>{PedomaterAvailability}</Text>
-          </View>
-        </View>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>
+        Is Pedometer available on the device : {PedomaterAvailability}
+      </Text>
+      <Text>Steps : {StepCount}</Text>
+      <Text>Distance : {DistanceCovered}</Text>
+      <Text>Calories : {caloriesBurnt}</Text>
+      <Text
+        onPress={() => {
+          setInterval(() => {
+            steps = steps + 1;
+            SetStepCount(steps);
+          }, 1000);
+        }}></Text>
+    </View>
+    // <SafeAreaView style={styles.stepCounterSafeAreaView}>
+    //   <View style={styles.headerView}>
+    //     <Image
+    //       style={styles.backNavsIcon}
+    //       resizeMode='cover'
+    //       source={require('../assets/backnavs.png')}
+    //     />
+    //     <Image
+    //       style={styles.detailNavsIcon}
+    //       resizeMode='cover'
+    //       source={require('../assets/detailnavs.png')}
+    //     />
+    //     <Text style={styles.stepCounterText}>Step Counter</Text>
+    //   </View>
+    //   <View style={styles.statusView}>
+    //     <View style={styles.caloriesBgView}>
+    //       <View style={styles.rectangleView} />
+    //     </View>
+    //     <View style={styles.caloriesTextView}>
+    //       <Text style={styles.caloriesText}>Calories</Text>
+    //       <Text style={styles.kCalText}>{caloriesBurnt}</Text>
+    //     </View>
+    //     <Image
+    //       style={styles.caloriesPieIcon}
+    //       resizeMode='cover'
+    //       source={require('../assets/caloriespie.png')}
+    //     />
+    //   </View>
+    //   <View style={styles.targetView}>
+    //     <View style={styles.sleepStatusBgView}>
+    //       <View style={styles.rectangleView1} />
+    //     </View>
+    //     <View style={styles.sleepTextView}>
+    //       <Text style={styles.sleepText}>Target</Text>
+    //       <Text style={styles.h20mText}>4500</Text>
+    //     </View>
+    //     <Image
+    //       style={styles.sleepGraphIcon}
+    //       resizeMode='cover'
+    //       source={require('../assets/sleepgraph1.png')}
+    //     />
+    //   </View>
+    //   <Image
+    //     style={styles.progressSectionIcon}
+    //     resizeMode='cover'
+    //     source={require('../assets/progresssection.png')}
+    //   />
+    //   <View style={styles.countercardView}>
+    //     <View style={styles.bgView}></View>
+    //     <Image
+    //       style={styles.frameIcon}
+    //       resizeMode='cover'
+    //       source={require('../assets/frame-1.png')}
+    //     />
+    //     <View style={styles.workoutTextView}>
+    //       <Text style={styles.totalStepCount}>Total Step Count</Text>
+    //       <Text style={styles.text}>{StepCount}</Text>
+    //     </View>
+    //     <Pressable
+    //       onPress={() => {
+    //         console.log('Step Counter Start Button Clicked');
+    //         subscribe();
+    //       }}
+    //       style={styles.buttonViewmorePressable}>
+    //       <View style={styles.buttonBgView}>
+    //         <View style={styles.rectangleView2} />
+    //       </View>
+    //       <View style={styles.buttonTextView}>
+    //         <Text style={styles.startText}>Start</Text>
+    //       </View>
+    //     </Pressable>
+    //   </View>
+    //   <View style={styles.groupView}>
+    //     <View style={styles.scheduleBgView}></View>
+    //     <View style={styles.workoutScheduleTextView}>
+    //       <Text style={styles.dailySleepSchedule}>
+    //         <Text
+    //           style={
+    //             styles.isPedometerAvailable
+    //           }>{`Is Pedometer available on this `}</Text>
+    //         <Text style={styles.deviceText}>device</Text>
+    //       </Text>
+    //     </View>
+    //     <View style={styles.buttonCheckView}>
+    //       <View style={styles.buttonBgView1}>
+    //         <View style={styles.rectangleView3} />
+    //       </View>
+    //       <View style={styles.buttonTextView1}>
+    //         <Text style={styles.yesNo}>{PedomaterAvailability}</Text>
+    //       </View>
+    //     </View>
+    //   </View>
+    // </SafeAreaView>
   );
 };
 
 export default StepCounter;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   backNavsIcon: {
     position: 'absolute',
     top: 0,

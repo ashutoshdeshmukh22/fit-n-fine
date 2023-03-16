@@ -24,7 +24,7 @@ const Onboarding3 = () => {
       <TouchableOpacity
         style={styles.nextTouchableOpacity}
         activeOpacity={0.2}
-        onPress={() => navigation.navigate('RegisterPage')}>
+        onPress={() => navigation.navigate('Home')}>
         <Image
           style={styles.icon}
           resizeMode='cover'

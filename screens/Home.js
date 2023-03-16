@@ -18,8 +18,8 @@ const Home = () => {
     <SafeAreaView style={styles.homeSafeAreaView}>
       <View style={styles.headerView}>
         <View style={styles.titleHomeView}>
-          <Text style={styles.welcomeBackText}>Welcome Back,</Text>
-          <Text style={styles.ashutoshDeshmukhText}>Ashutosh Deshmukh</Text>
+          <Text style={styles.welcomeBackText}>Welcome,</Text>
+          <Text style={styles.ashutoshDeshmukhText}>To Fit N Fine</Text>
         </View>
         <Image
           style={styles.notificationIcon}
